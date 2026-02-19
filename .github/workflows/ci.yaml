@@ -7,6 +7,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: mn_playground
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
+
     steps:
       - name: Checkout sources
         uses: actions/checkout@v6
